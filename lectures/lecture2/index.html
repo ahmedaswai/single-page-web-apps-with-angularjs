@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" ng-app="CustomFilterApp">
+  <head>
+    <title>Filter App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../resources/css/angular.material.css">
+
+  </head>
+<body>
+
+<div ng-controller="CustomFilterAppCtrl">
+  <div flex layout="row" layout-align="center center">
+    <div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2">
+        <md-content class="md-padding">
+            <div layout-gt-xs-row="row">
+
+                    <md-input-container class="md-block">
+                        <label>Food Items:</label>
+                        <input ng-model="message">
+                        <p class="md-primary">{{message|ready:" Mah "|uppercase}}</p>
+                        <p class="md-primary">{{sayMessage()}}</p>
+                    </md-input-container>
+                    <md-button ng-click="checkDigestLoop();"> Testing</md-button>
+
+
+            </div>
+        </md-content>
+    </div>
+</div>
+
+
+</div>
+
+<script src="../../resources/js/angular.min.js"></script>
+<script src="../../resources/js/angular.aria.js"></script>
+<script src="../../resources/js/angular.animate.js"></script>
+ <script src="../../resources/js/angular.material.js"></script>
+ <script src="app.js"/></script>
+ <script id="__bs_script__">
+      var locationHost=location.hostname;
+      var jsBrowser="http://HOST:3000/browser-sync/browser-sync-client.js?v=2.17.0".replace("HOST",locationHost);
+
+     document.write(["<script async src='",jsBrowser,"'/>"].join(""));
+     console.log()
+ </script>
+</body>
+</html>
