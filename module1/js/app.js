@@ -33,7 +33,7 @@
     else{
       $scope.showToast("Too Much For Meal !!!!!","error");
       $scope.foodItems="";
-      $scope.error="33";
+      
     }
    };
 
