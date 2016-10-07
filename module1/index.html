@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" ng-app="LunchCheck">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/angular.material.css">
+
+  </head>
+<body>
+
+<div ng-controller="LunchCheckController">
+  <div flex layout="row" layout-align="center center">
+    <div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2">
+        <md-content class="md-padding">
+            <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+                <form name="foodItemsForm">
+                    <md-input-container flex>
+                        <label>Food Items:</label>
+                        <input ng-model="foodItems">
+                        <md-tooltip>
+                            Your food list shoudn't contain empty food items
+                        </md-tooltip>
+                    </md-input-container>
+
+
+                    <md-button class="md-raised md-primary" ng-click="checkFoodItems();" >Check If Too Much
+
+                    </md-button>
+
+                </form>
+            </div>
+        </md-content>
+    </div>
+</div>
+
+
+</div>
+
+<script src="js/angular.min.js"></script>
+<script src="js/angular.aria.js"></script>
+<script src="js/angular.animate.js"></script>
+ <script src="js/angular.material.js"></script>
+ <script src="js/app.js"/></script>
+ <script id="__bs_script__">
+      var locationHost=location.hostname;
+      var jsBrowser="http://HOST:3000/browser-sync/browser-sync-client.js?v=2.17.0".replace("HOST",locationHost);
+
+     document.write(["<script async src='",jsBrowser,"'/>"].join(""));
+     console.log()
+ </script>
+</body>
+</html>
