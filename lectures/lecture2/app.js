@@ -10,17 +10,39 @@
     };
  };
 
- var ctrl=function ($scope,readyFilter) {
+ var service=function () {
+    var _name="Ahmed";
+
+    this.getName=function(){return _name};
+ };
+ var factoryService=function () {
+    var service={};
+    var _name="Ahmed Factory";
+    service.getName=function(){return _name};
+    return service;
+
+ };
+
+ var ctrl=function ($scope,readyFilter,$timeout,myService,fac) {
     $scope.message=" Khamis";
-    $scope.sayMessage=function(){
-       return readyFilter($scope.message);
+    $scope.counter=0;
+    console.log(myService.getName());
+    console.log(fac.getName());
+    $scope.checkDigestLoop=function(){
+       $timeout(function () {
+         $scope.counter++;
+
+         console.log("Counters Count",$scope.counter);
+       }, 2000);
+
     };
-    $scope.checkDigestLoop=function () {
-       console.log(this.$$watchersCount);
-    };
+
  };
 
  myApp.controller("CustomFilterAppCtrl",ctrl);
  myApp.filter('ready',filterFunction);
- ctrl.$inject=["$scope","readyFilter"];
+ myApp.service('myService',service);
+ myApp.factory('factoryService',factoryService);
+
+ ctrl.$inject=["$scope","readyFilter",'$timeout','myService','factoryService'];
 })();

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" ng-app="ShopCartApp">
+  <head>
+    <title>Shop Cart App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../resources/css/angular.material.css">
+
+  </head>
+<body>
+  <div ng-cloak="" layout-gt-sm="row" layout="column" class="listdemoBasicUsage" >
+  <div flex-gt-sm="50" flex="">
+
+      <md-toolbar layout="row" class="md-hue-3">
+        <div class="md-toolbar-tools">
+          <span>Available for Sale</span>
+        </div>
+      </md-toolbar>
+      <div ng-controller="ShopCartToBeBoughtCtrl as ctrlSale">
+
+      <md-content>
+        <md-list flex="">
+        <md-list-item  class="md-3-line md-with-secondary" ng-repeat="item in ctrlSale.itemsForSale">
+
+    <p>{Buy {{item.name}} Available quantity is <b>{{item.quantity}}</b></p>
+
+     <md-divider></md-divider>
+
+      <md-button class="md-primary md-raised" ng-click="ctrlSale.buyItem($index);" aria-label="Buy Item">Buy Item</md-button>
+
+
+  </md-list-item>
+  <md-list-item-text ng-show="!ctrlSale.itemsForSale.length">
+  <p> The store is empty now </p>
+  </md-list-item-text>
+
+  </md-list>
+      </md-content>
+      </div>
+    </div>
+
+
+    <md-divider></md-divider>
+
+    <div flex-gt-sm="50" flex="">
+
+      <md-toolbar layout="row" class="md-hue-3">
+        <div class="md-toolbar-tools">
+          <span>Your Shopping Cart</span>
+        </div>
+      </md-toolbar>
+      <div ng-controller="ShopCartBoughtCtrl as soldCtrl">
+      <md-content>
+      <md-list flex="">
+      <md-list-item  class="md-3-line md-with-secondary" ng-repeat="item in soldCtrl.soldItems">
+
+
+        <p>Bought {{item.name}} With quantity is <b>{{item.quantity}}</b></p>
+
+         <md-divider></md-divider>
+
+          <md-button class="md-warn md-raised" ng-click="soldCtrl.returnItem($index);"
+              aria-label="Return Item">Return Item</md-button>
+
+
+      </md-list-item>
+      <md-list-item-text ng-show="!soldCtrl.soldItems.length">
+      <p> Your Shopping Cart is empty </p>
+      </md-list-item-text>
+
+      </md-list>
+    </md-content>
+  </div>
+
+
+<div>
+
+
+<script src="../resources/js/angular.min.js"></script>
+<script src="../resources/js/angular.aria.js"></script>
+<script src="../resources/js/angular.animate.js"></script>
+ <script src="../resources/js/angular.material.js"></script>
+ <script src="js/app.js"/></script>
+ <script id="__bs_script__">
+      var locationHost=location.hostname;
+      var jsBrowser="http://HOST:3000/browser-sync/browser-sync-client.js?v=2.17.0".replace("HOST",locationHost);
+
+     document.write(["<script async src='",jsBrowser,"'/>"].join(""));
+     console.log()
+ </script>
+</body>
+</html>
