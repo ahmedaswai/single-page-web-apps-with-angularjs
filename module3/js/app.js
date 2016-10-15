@@ -11,6 +11,7 @@
           "error")
         return;
       }
+      myctrl.foundItems = [];
       var doneFunction = function(response) {
 
         var items = response.data.menu_items;
