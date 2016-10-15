@@ -1,4 +1,4 @@
-<md-container ng-if="ctrl.foundItems">
+<md-container ng-if="ctrl.foundItems.length>0">
 
 <md-table-container>
 
@@ -37,7 +37,7 @@
 
 </md-table-container>
 </md-container>
-<md-container ng-if="!ctrl.foundItems">
+<md-container ng-if="ctrl.foundItems.length<=0">
   <md-card>
 
    <md-card-content>
