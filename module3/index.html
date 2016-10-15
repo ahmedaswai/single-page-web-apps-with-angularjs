@@ -8,7 +8,7 @@
 
   </head>
 <body>
-  <div ng-controller="MenuItemContoller">
+  <div ng-controller="MenuItemContoller as ctrl">
     <div flex layout="row" layout-align="center center">
       <div flex-sm="100" flex-gt-sm="90" flex-gt-md="90" flex-gt-lg="90" class="md-whiteframe-z2">
           <md-content class="md-padding">
@@ -26,6 +26,8 @@
                           </md-button>
                             </md-divider>
                       </md-input-container>
+
+                      <md-progress-circular ng-disabled="!ctrl.searchInProgress" class="md-hue-2" md-diameter="20px"></md-progress-circular>
 
                       <md-input-container class="md-block">
                         <menu-items></menu-items>

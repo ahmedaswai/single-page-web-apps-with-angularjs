@@ -13,11 +13,12 @@
       }
       myctrl.foundItems = [];
       var doneFunction = function(response) {
-
+        myctrl.searchInProgress = true;
         var items = response.data.menu_items;
         myctrl.foundItems = utilsService.filterList(items, $scope.menuItemSearch);
         myctrl.pageNumber = 1;
         myctrl.pageLimit = 10;
+        myctrl.searchInProgress = false;
 
       };
       var errorFunction = function() {};
