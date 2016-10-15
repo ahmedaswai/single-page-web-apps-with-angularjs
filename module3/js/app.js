@@ -3,7 +3,8 @@
 
   var myApp = angular.module("MenuApp", ['ngMaterial', 'md.data.table']);
   //**** Start Contollers *****//
-  var menuItemContoller = function($scope, menuItemService, utilsService) {
+  var menuItemContoller = function($scope, menuItemService, utilsService,
+    $timeout) {
     var myctrl = this;
     $scope.searchMenuItems = function() {
       if (!$scope.menuItemSearch) {
@@ -14,11 +15,15 @@
       myctrl.foundItems = [];
       var doneFunction = function(response) {
         myctrl.searchInProgress = true;
-        var items = response.data.menu_items;
-        myctrl.foundItems = utilsService.filterList(items, $scope.menuItemSearch);
-        myctrl.pageNumber = 1;
-        myctrl.pageLimit = 10;
-        myctrl.searchInProgress = false;
+        $timeout(function() {
+          var items = response.data.menu_items;
+          myctrl.foundItems = utilsService.filterList(items, $scope
+            .menuItemSearch);
+          myctrl.pageNumber = 1;
+          myctrl.pageLimit = 10;
+          myctrl.searchInProgress = false;
+        }, 1000);
+
 
       };
       var errorFunction = function() {};
@@ -33,7 +38,9 @@
 
 
   };
-  menuItemContoller.$inject = ["$scope", "menuItemService", "utilsService"];
+  menuItemContoller.$inject = ["$scope", "menuItemService", "utilsService",
+    "$timeout"
+  ];
   //**** End Contollers *****//
 
   //**** Start Services  *****//

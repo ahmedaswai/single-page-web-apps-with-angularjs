@@ -37,7 +37,7 @@
 
 </md-table-container>
 </md-container>
-<md-container ng-if="ctrl.foundItems.length<=0">
+<md-container ng-if="ctrl.foundItems.length<=0 && !ctrl.searchInProgress">
   <md-card>
 
    <md-card-content>

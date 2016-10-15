@@ -27,7 +27,9 @@
                             </md-divider>
                       </md-input-container>
 
-                      <md-progress-circular ng-disabled="!ctrl.searchInProgress" class="md-hue-2" md-diameter="20px"></md-progress-circular>
+                      <div layout="row" ng-if="ctrl.searchInProgress" layout-sm="column" layout-align="space-around">
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                      </div>
 
                       <md-input-container class="md-block">
                         <menu-items></menu-items>
