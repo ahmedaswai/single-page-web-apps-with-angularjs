@@ -1,4 +1,4 @@
-<md-container ng-show="ctrl.foundItems.length>0">
+<md-container ng-if="ctrl.foundItems">
 
 <md-table-container>
 
@@ -37,13 +37,13 @@
 
 </md-table-container>
 </md-container>
-<md-container ng-show="ctrl.foundItems.length==0">
+<md-container ng-if="!ctrl.foundItems">
   <md-card>
 
    <md-card-content>
      <h2>Empty Results</h2>
      <p>No Data Found</p>
    </md-card-content>
-   
+
   </md-card>
 </md-container>
