@@ -1,0 +1,39 @@
+<md-container ng-show="ctrl.foundItems.length>0">
+
+<md-table-container>
+
+  <table md-table>
+    <thead md-head>
+      <tr md-row>
+        <th  md-column md-numeric><span>N</span></th>
+        <th  md-column md-numeric><span>Id</span></th>
+        <th md-column ><span>Name</span></th>
+        <th md-column md-numeric><span>Price Large</span></th>
+        <th md-column md-numeric>Price Small</th>
+        <th  md-column>Large Portion Name</th>
+        <th  md-column >Description</th>
+        <th  md-column >Action</th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row md-auto-select  ng-repeat="item in ctrl.foundItems
+          |limitTo: ctrl.pageLimit: (ctrl.pageNumber - 1) * ctrl.pageLimit">
+
+        <td md-cell>{{($index+((ctrl.pageNumber - 1) * ctrl.pageLimit))+1}}</td>
+        <td md-cell>{{item.id}}</td>
+        <td md-cell>{{item.name}}</td>
+        <td md-cell>{{item.price_large}}</td>
+        <td md-cell>{{item.price_small}}</td>
+        <td md-cell>{{item.large_portion_name}}</td>
+        <td md-cell>{{item.description}}</td>
+        <td md-cell> <md-button remove-action current-row-index="{{$index+((ctrl.pageNumber - 1) * ctrl.pageLimit)}}"  class="md-warn md-raised"> Ignore</md-button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <md-table-pagination md-limit-options="[10, 20, 50]"
+  md-limit="ctrl.pageLimit" md-page="ctrl.pageNumber"
+  md-total="{{ctrl.foundItems.length}}"></md-table-pagination>
+
+</md-table-container>
+</md-container>
